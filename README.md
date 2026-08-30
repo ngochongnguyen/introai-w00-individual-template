@@ -10,7 +10,7 @@ accept → inspect → edit → commit → push → submit → read feedback →
 The automatic score checks only the final repository and its Git history. It does not
 assess the quality of your course goal or prove that you typed every inspection command.
 
-See the illustrated [`docs/CLASSROOM50-WEB-UI.md`](docs/CLASSROOM50-WEB-UI.md) guide for the browser interface and CLI equivalents.
+See [`docs/CLASSROOM50-WEB-UI.md`](docs/CLASSROOM50-WEB-UI.md) for the browser interface and CLI equivalents.
 
 ## 1. Accept and open the assignment
 
@@ -111,18 +111,11 @@ The expected final result is:
 > This is a completion score only. It does not assess whether the submitted work is
 > mathematically, logically, algorithmically, or factually correct.
 
+<!-- SOURCE-PROVENANCE:BEGIN -->
+## Source provenance
 
-## Template provenance
-
-This dedicated template was generated from:
-
-```text
-Source repository: hoanganhduc/VNU-HUS-IntroAI-Exercises
-Source commit:     04eb34704263f2f33fabef07ac60218b9af8650b
-Source directory:  Classroom50/w00-individual-onboarding/
-Dedicated repo:    VNU-HUS/introai-w00-individual-template
-```
-
-The teacher-side `classroom50-tests.json` is intentionally excluded. The reviewed course
-`.devcontainer/` is added from the same source commit. Corrections must be made in the
-canonical source first and then copied here.
+- Source repository: `hoanganhduc/VNU-HUS-IntroAI-Exercises`
+- Source commit: `2c850f92198db870f77458545a1db18e9a331965`
+- Source slug: `Classroom50/w00-individual-onboarding`
+- Complete file inventory: [`SOURCE-INVENTORY.md`](SOURCE-INVENTORY.md)
+<!-- SOURCE-PROVENANCE:END -->
