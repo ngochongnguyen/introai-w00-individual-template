@@ -69,7 +69,7 @@ git push
 gh student submit
 ```
 
-This first submission should fail because `message.txt` still contains its starter placeholder. In Classroom50, open the assignment and choose **My submission**, then **View grade**. Open the GitHub Feedback PR and read the reported missing requirement.
+This first submission should fail because `message.txt` still contains its starter placeholder. In Classroom50, open the assignment and choose **My submission**, then **View score**. Open the GitHub Feedback PR and read the reported missing requirement.
 
 ## 5. Complete and commit `message.txt`
 
@@ -93,11 +93,11 @@ gh student submit
 
 ## 6. Confirm completion
 
-Return to Classroom50, open **My submission**, and confirm that the newest submission is shown. Open **View grade** and the GitHub Feedback PR, and confirm that the final completion check passes.
+Return to Classroom50, open **My submission**, and confirm that the newest submission is shown. Open **View score** and the GitHub Feedback PR, and confirm that the final completion check passes.
 
 The checker verifies only that:
 
-- `profile.md` and `message.txt` contain the required final content;
+- `profile.md` and `message.txt` are regular files with the required final content;
 - a commit named exactly `Complete profile` changes `profile.md`;
 - a later commit named exactly `Complete message` changes `message.txt`;
 - both commits are in the submitted history and occur in that order.
@@ -115,7 +115,7 @@ The expected final result is:
 ## Source provenance
 
 - Source repository: `hoanganhduc/VNU-HUS-IntroAI-Exercises`
-- Source commit: `2c850f92198db870f77458545a1db18e9a331965`
+- Source commit: `f9e86d9a71c750cfddfee8516de1b6fbcb1a3834`
 - Source slug: `Classroom50/w00-individual-onboarding`
 - Complete file inventory: [`SOURCE-INVENTORY.md`](SOURCE-INVENTORY.md)
 <!-- SOURCE-PROVENANCE:END -->

@@ -8,6 +8,7 @@ quality of the student's answers.
 from __future__ import annotations
 
 import re
+import stat
 import subprocess
 import sys
 from dataclasses import dataclass
@@ -61,6 +62,13 @@ def contains_placeholder(text: str) -> bool:
     return any(token in upper for token in PLACEHOLDERS)
 
 
+def is_regular_file(path: Path) -> bool:
+    try:
+        return stat.S_ISREG(path.lstat().st_mode)
+    except OSError:
+        return False
+
+
 def extract_section(text: str, heading: str) -> str:
     pattern = re.compile(
         rf"^## {re.escape(heading)}\s*$\n+(.*?)(?=^## |\Z)",
@@ -75,12 +83,15 @@ def extract_section(text: str, heading: str) -> str:
 def check_files() -> None:
     profile = ASSIGNMENT_DIR / "profile.md"
     message = ASSIGNMENT_DIR / "message.txt"
-    if not profile.is_file():
-        raise CheckError("profile.md is missing")
-    if not message.is_file():
-        raise CheckError("message.txt is missing")
+    if not is_regular_file(profile):
+        raise CheckError("profile.md must be a regular file, not a symbolic link")
+    if not is_regular_file(message):
+        raise CheckError("message.txt must be a regular file, not a symbolic link")
 
-    profile_text = profile.read_text(encoding="utf-8")
+    try:
+        profile_text = profile.read_text(encoding="utf-8")
+    except (OSError, UnicodeError) as exc:
+        raise CheckError(f"profile.md is not readable UTF-8 text: {exc}") from exc
     username = extract_section(profile_text, "GitHub username")
     goal = extract_section(profile_text, "One goal for this course")
 
@@ -91,7 +102,10 @@ def check_files() -> None:
     if len(goal) < 5 or contains_placeholder(goal):
         raise CheckError("the course goal in profile.md is not filled")
 
-    message_lines = message.read_text(encoding="utf-8").splitlines()
+    try:
+        message_lines = message.read_text(encoding="utf-8").splitlines()
+    except (OSError, UnicodeError) as exc:
+        raise CheckError(f"message.txt is not readable UTF-8 text: {exc}") from exc
     if message_lines != [EXPECTED_MESSAGE]:
         raise CheckError(
             f"message.txt must contain exactly one line: {EXPECTED_MESSAGE!r}"
