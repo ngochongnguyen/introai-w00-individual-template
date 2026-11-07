@@ -2,8 +2,8 @@
 
 ## GitHub username
 
-REPLACE_THIS_TEXT
+ngochongnguyen
 
 ## One goal for this course
 
-REPLACE_THIS_TEXT
+To improve my problem-solving skills and develop a solid understanding of artificial intelligence and programming fundamentals.
